@@ -1,46 +1,60 @@
-let cart = [];
-let total = 0;
+console.log("script running");
 
-const popcornButton = document.querySelector('#popcorn');
-const sodaButton = document.querySelector('#soda');
-const candyButton = document.querySelector('#candy');
-const nachosButton = document.querySelector('#nachos');
-const icecreamButton = document.querySelector('#icecream');
+let totalInCent = 0;;
 
-const shoppingCart = document.getElementById('shopping-cart');
-const totalSpan = document.getElementById('total-span');
+const popcornbtn = document.querySelector("#popcorn");
+const sodabtn = document.querySelector("#soda");
+const candybtn = document.querySelector("#candy");
+const nachosbtn = document.querySelector("#nachos");
+const icecreambtn = document.querySelector("#icecream");
 
-const UpdateDisplayTotal = () => {
-    totalSpan.textContent = total/100;
-}
+const shoppingCart = document.querySelector("#shopping-cart");
+const totalSpan = document.querySelector("#total-span");
+
+console.log(
+    popcornbtn,
+    sodabtn,
+    candybtn,
+    nachosbtn,
+    icecreambtn,
+    shoppingCart,
+    totalSpan
+);
+
+const updateTotal = () => {
+    totalSpan.innerHTML = (totalInCent / 100).toFixed(2);
+};
 const addPopcorn = () => {
-    shoppingCart.innerHTML +=
-    total += 450;
-    UpdateDisplayTotal();
+    shoppingCart.innerHTML += `<p>🍿 Popcorn</p>`;
+    totalInCent += 450;
+    updateTotal();
 }
-const addSoda = () => {
-    shoppingCart.innerHTML +=
-    total += 250;
-    UpdateDisplayTotal();
-}
-const addCandy = () => {
-    shoppingCart.innerHTML +=
-    total += 175;
-    UpdateDisplayTotal();
-}
-const addNachos = () => {
-    shoppingCart.innerHTML +=
-    total += 500;
-    UpdateDisplayTotal();
-}
-const addIcecream = () => {
-    shoppingCart.innerHTML +=
-    total += 325;
-    UpdateDisplayTotal();
-}
+popcornbtn.addEventListener("click", addPopcorn);
 
-popcornButton.addEventListener("click",addPopcorn);
-sodaButton.addEventListener("click", addSoda);
-candyButton.addEventListener("click",addCandy);
-nachosButton.addEventListener("click",addNachos);
-icecreamButton.addEventListener("click", addIcecream);
+const addSoda = () => {
+    shoppingCart.innerHTML += `<p>🥤 Soda</p>`;
+    totalInCent += 250;
+    updateTotal();
+}
+sodabtn.addEventListener("click", addSoda);
+
+const addCandy = () => {
+    shoppingCart.innerHTML += `<p>🍬 Candy</p>`;
+    totalInCent += 175;
+    updateTotal();
+}
+candybtn.addEventListener("click", addCandy);
+
+const addNachos = () => {
+    shoppingCart.innerHTML += `<p>🧀 Nachos</p>`;
+    totalInCent += 500;
+    updateTotal();
+}
+nachosbtn.addEventListener("click", addNachos);
+
+const addicecream = () => {
+    shoppingCart.innerHTML += `<p>🍦 Ice cream</p>`;
+    totalInCent += 325;
+    updateTotal();
+};
+icecreambtn.addEventListener("click", addicecream);
